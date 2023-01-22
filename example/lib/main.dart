@@ -27,19 +27,19 @@ class _MyAppState extends State<MyApp> {
       home: Builder(
         builder: (context) {
           return Scaffold(
-            body: DocumentScanner(
-              controller: _controller,
-              generalStyles: const GeneralStyles(
-                baseColor: Colors.white,
-              ),
-              cropPhotoDocumentStyle: CropPhotoDocumentStyle(
-                top: MediaQuery.of(context).padding.top,
-              ),
-              onSave: (Uint8List imageBytes) {
-                // ? Bytes of the document/image already processed
-              },
-            ),
-          );
+              // body: DocumentScanner(
+              //   controller: _controller,
+              //   generalStyles: const GeneralStyles(
+              //     baseColor: Colors.white,
+              //   ),
+              //   cropPhotoDocumentStyle: CropPhotoDocumentStyle(
+              //     top: MediaQuery.of(context).padding.top,
+              //   ),
+              //   onSave: (Uint8List imageBytes) {
+              //     // ? Bytes of the document/image already processed
+              //   },
+              // ),
+              );
         },
       ),
     );

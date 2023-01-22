@@ -38,6 +38,11 @@ class DocumentScanner extends StatelessWidget {
 
   ///
   final EditPhotoDocumentStyle editPhotoDocumentStyle;
+  final String camerabutton;
+  final String pdfimage;
+  final String galleryimage;
+  final VoidCallback pdftools;
+  final VoidCallback gallery;
 
   ///
   final OnSave onSave;
@@ -53,6 +58,11 @@ class DocumentScanner extends StatelessWidget {
     this.cropPhotoDocumentStyle = const CropPhotoDocumentStyle(),
     this.editPhotoDocumentStyle = const EditPhotoDocumentStyle(),
     required this.onSave,
+    required this.camerabutton,
+    required this.pdfimage,
+    required this.galleryimage,
+    required this.pdftools,
+    required this.gallery,
   }) : super(key: key);
 
   @override
@@ -149,10 +159,15 @@ class DocumentScanner extends StatelessWidget {
           child: Container(
             color: generalStyles.baseColor,
             child: _View(
+              camerabutton: camerabutton,
               pageTransitionBuilder: pageTransitionBuilder,
               takePhotoDocumentStyle: takePhotoDocumentStyle,
               cropPhotoDocumentStyle: cropPhotoDocumentStyle,
               editPhotoDocumentStyle: editPhotoDocumentStyle,
+              pdfimage: pdfimage,
+              galleryimage: galleryimage,
+              pdftools: pdftools,
+              gallery: gallery,
               onSave: onSave,
             ),
           ),
@@ -167,6 +182,11 @@ class _View extends StatelessWidget {
   final TakePhotoDocumentStyle takePhotoDocumentStyle;
   final CropPhotoDocumentStyle cropPhotoDocumentStyle;
   final EditPhotoDocumentStyle editPhotoDocumentStyle;
+  final String pdfimage;
+  final String galleryimage;
+  final VoidCallback pdftools;
+  final VoidCallback gallery;
+  final String camerabutton;
   final OnSave onSave;
 
   const _View({
@@ -176,6 +196,11 @@ class _View extends StatelessWidget {
     required this.cropPhotoDocumentStyle,
     required this.editPhotoDocumentStyle,
     required this.onSave,
+    required this.camerabutton,
+    required this.pdfimage,
+    required this.galleryimage,
+    required this.pdftools,
+    required this.gallery,
   }) : super(key: key);
 
   @override
@@ -185,12 +210,22 @@ class _View extends StatelessWidget {
       builder: (context, state) {
         Widget page = TakePhotoDocumentPage(
           takePhotoDocumentStyle: takePhotoDocumentStyle,
+          camerabutton: camerabutton,
+          pdfimage: pdfimage,
+          galleryimage: galleryimage,
+          pdftools: pdftools,
+          gallery: gallery,
         );
 
         switch (state) {
           case AppPages.takePhoto:
             page = TakePhotoDocumentPage(
               takePhotoDocumentStyle: takePhotoDocumentStyle,
+              camerabutton: camerabutton,
+              pdfimage: pdfimage,
+              galleryimage: galleryimage,
+              pdftools: pdftools,
+              gallery: gallery,
             );
             break;
 

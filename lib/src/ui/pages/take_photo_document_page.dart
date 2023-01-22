@@ -8,10 +8,16 @@ import 'package:flutter_document_scanner/src/utils/take_photo_document_style.dar
 
 class TakePhotoDocumentPage extends StatelessWidget {
   final TakePhotoDocumentStyle takePhotoDocumentStyle;
-
+  final String camerabutton;
+ 
+  final String pdfimage;
+  final String galleryimage;
+  final VoidCallback pdftools;
+  final VoidCallback gallery;
   const TakePhotoDocumentPage({
     Key? key,
     required this.takePhotoDocumentStyle,
+    required this.camerabutton, required this.pdfimage, required this.galleryimage, required this.pdftools, required this.gallery,
   }) : super(key: key);
 
   @override
@@ -29,6 +35,11 @@ class TakePhotoDocumentPage extends StatelessWidget {
           case AppStatus.success:
             return _CameraPreview(
               takePhotoDocumentStyle: takePhotoDocumentStyle,
+              camerabutton: camerabutton,
+              pdfimage: pdfimage,
+              galleryimage: galleryimage,
+              pdftools: pdftools,
+              gallery: gallery,
             );
 
           case AppStatus.failure:
@@ -41,10 +52,19 @@ class TakePhotoDocumentPage extends StatelessWidget {
 
 class _CameraPreview extends StatelessWidget {
   final TakePhotoDocumentStyle takePhotoDocumentStyle;
-
+  final String camerabutton;
+  final String pdfimage;
+  final String galleryimage;
+  final VoidCallback pdftools;
+  final VoidCallback gallery;
   const _CameraPreview({
     Key? key,
     required this.takePhotoDocumentStyle,
+    required this.camerabutton,
+    required this.pdfimage,
+    required this.galleryimage,
+    required this.pdftools,
+    required this.gallery,
   }) : super(key: key);
 
   @override
@@ -77,7 +97,18 @@ class _CameraPreview extends StatelessWidget {
               ...takePhotoDocumentStyle.children!,
 
             /// Default
-            const ButtonTakePhoto(),
+            Row(
+              children: [
+                InkWell(
+                    onTap: pdftools, child: Image.asset(pdfimage, scale: 1.5)),
+                ButtonTakePhoto(
+                  image: camerabutton,
+                ),
+                InkWell(
+                    onTap: gallery,
+                    child: Image.asset(galleryimage, scale: 1.3)),
+              ],
+            ),
           ],
         );
       },
