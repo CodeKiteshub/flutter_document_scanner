@@ -101,8 +101,8 @@ class _CameraPreview extends StatelessWidget {
               ...takePhotoDocumentStyle.children!,
 
             /// Default
-            Align(
-              alignment: Alignment.bottomCenter,
+            Positioned(
+              bottom: 20,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
