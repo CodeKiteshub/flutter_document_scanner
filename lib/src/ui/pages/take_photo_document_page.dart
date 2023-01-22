@@ -9,7 +9,7 @@ import 'package:flutter_document_scanner/src/utils/take_photo_document_style.dar
 class TakePhotoDocumentPage extends StatelessWidget {
   final TakePhotoDocumentStyle takePhotoDocumentStyle;
   final String camerabutton;
- 
+
   final String pdfimage;
   final String galleryimage;
   final VoidCallback pdftools;
@@ -17,7 +17,11 @@ class TakePhotoDocumentPage extends StatelessWidget {
   const TakePhotoDocumentPage({
     Key? key,
     required this.takePhotoDocumentStyle,
-    required this.camerabutton, required this.pdfimage, required this.galleryimage, required this.pdftools, required this.gallery,
+    required this.camerabutton,
+    required this.pdfimage,
+    required this.galleryimage,
+    required this.pdftools,
+    required this.gallery,
   }) : super(key: key);
 
   @override
@@ -97,17 +101,22 @@ class _CameraPreview extends StatelessWidget {
               ...takePhotoDocumentStyle.children!,
 
             /// Default
-            Row(
-              children: [
-                InkWell(
-                    onTap: pdftools, child: Image.asset(pdfimage, scale: 1.5)),
-                ButtonTakePhoto(
-                  image: camerabutton,
-                ),
-                InkWell(
-                    onTap: gallery,
-                    child: Image.asset(galleryimage, scale: 1.3)),
-              ],
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  InkWell(
+                      onTap: pdftools,
+                      child: Image.asset(pdfimage, scale: 1.5)),
+                  ButtonTakePhoto(
+                    image: camerabutton,
+                  ),
+                  InkWell(
+                      onTap: gallery,
+                      child: Image.asset(galleryimage, scale: 1.3)),
+                ],
+              ),
             ),
           ],
         );
