@@ -103,6 +103,8 @@ class _CameraPreview extends StatelessWidget {
             /// Default
             Positioned(
               bottom: 20,
+              left: 0,
+              right: 0,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
