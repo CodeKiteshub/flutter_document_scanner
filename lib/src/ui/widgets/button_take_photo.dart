@@ -17,37 +17,32 @@ class ButtonTakePhoto extends StatelessWidget {
       return Container();
     }
 
-    return Positioned(
-      bottom: 20,
-      left: 0,
-      right: 0,
-      child: Center(
-        child: GestureDetector(
-            onTap: () => context.read<DocumentScannerController>().takePhoto(),
-            child: Image.asset(image, scale: 4)
-            // child: Container(
-            //   height: 74,
-            //   width: 74,
-            //   decoration: BoxDecoration(
-            //     shape: BoxShape.circle,
-            //     border: Border.all(
-            //       color: Colors.white,
-            //       width: 6,
-            //     ),
-            //   ),
-            //   child: Center(
-            //     child: Container(
-            //       height: 25,
-            //       width: 25,
-            //       decoration: const BoxDecoration(
-            //         color: Color(0xffd8345e),
-            //         shape: BoxShape.circle,
-            //       ),
-            //     ),
-            //   ),
-            // ),
-            ),
-      ),
+    return Center(
+      child: GestureDetector(
+          onTap: () => context.read<DocumentScannerController>().takePhoto(),
+          child: Image.asset(image, scale: 4)
+          // child: Container(
+          //   height: 74,
+          //   width: 74,
+          //   decoration: BoxDecoration(
+          //     shape: BoxShape.circle,
+          //     border: Border.all(
+          //       color: Colors.white,
+          //       width: 6,
+          //     ),
+          //   ),
+          //   child: Center(
+          //     child: Container(
+          //       height: 25,
+          //       width: 25,
+          //       decoration: const BoxDecoration(
+          //         color: Color(0xffd8345e),
+          //         shape: BoxShape.circle,
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          ),
     );
   }
 }
